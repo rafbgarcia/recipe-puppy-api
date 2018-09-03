@@ -4,17 +4,20 @@
  */
 const Api = {}
 
-Api.url = "http://www.recipepuppy.com/api/?"
+Api.url = "/search"
 
 /**
- * @param {String} search - Will be used to perform a "Normal search query"
+ * Formats an URL to request
+ *
+ * @param {String} search - Used to perform a "Normal search query"
  * @param {Integer} page - Page number for pagination
  */
 Api.createRequestUrl = (search, page) => (
-  encodeURIComponent(`${url}q=${search}&p=${page}`)
+  [Api.url, '?q=', search, '&p=', page].join("")
 )
 
 /**
+ * Make a request to the API
  *
  * @param {String} search - User's search term
  * @returns
