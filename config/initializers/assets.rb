@@ -12,3 +12,20 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+if Rails.env.development?
+  Rails.application.config.content_security_policy do |p|
+    p.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035"
+    # p.default_src :self, :https
+    # p.font_src    :self, :https, :data
+    # p.img_src     :self, :https, :data
+    # p.object_src  :none
+    # p.script_src  :self, :https, :unsafe_eval
+    # p.style_src   :self, :https, :unsafe_inline
+    # p.connect_src :self, :https, 'http://localhost:3035', 'ws://localhost:3035'
+
+    # Specify URI for violation reports
+    # p.report_uri "/csp-violation-report-endpoint"
+  end
+
+end
