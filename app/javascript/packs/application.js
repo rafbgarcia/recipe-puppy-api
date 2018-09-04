@@ -9,4 +9,5 @@
 
 import '../api'
 import '../format_recipes'
+import '../search'
 import '../app'

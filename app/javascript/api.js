@@ -9,21 +9,22 @@ Api.url = "/search"
 /**
  * Formats an URL to request
  *
- * @param {String} search - Used to perform a "Normal search query"
+ * @param {String} query - Used to perform a "Normal search query"
  * @param {Integer} page - Page number for pagination
  */
-Api.createRequestUrl = (search, page) => (
-  [Api.url, '?query=', search, '&page=', page].join("")
+Api.createRequestUrl = (query, page) => (
+  [Api.url, '?query=', query, '&page=', page].join("")
 )
 
 /**
  * Make a request to the API
  *
- * @param {String} search - User's search term
+ * @param {String} query - User's search term
+ * @param {number} page
  * @returns
  */
-Api.fetch = (search, page = 1) => (
-  fetch(Api.createRequestUrl(search, page))
+Api.fetch = (query, page) => (
+  fetch(Api.createRequestUrl(query, page))
   .then((resp) => resp.json())
 )
 
