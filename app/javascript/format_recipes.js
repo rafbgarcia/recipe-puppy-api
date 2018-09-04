@@ -26,20 +26,6 @@ Templates.searchRecipeDivider = `
 const defaultThumbnail = "http://img.recipepuppy.com/9.jpg"
 
 /**
- * @param {Recipe} recipe
- * @see types.js
- */
-const formatRecipe = (recipe) => (
-  Object
-  .keys(recipe)
-  .reduce((item, key) =>
-    item.replace(new RegExp(`{${key}}`, 'g'), recipe[key]),
-    Templates.searchRecipeItem
-  )
-)
-
-
-/**
  * @param {Array<Recipe>} recipes
  * @see types.js
  */
@@ -51,6 +37,19 @@ const formatRecipes = (recipes) => (
   }))
   .map(formatRecipe)
   .join(Templates.searchRecipeDivider)
+)
+
+/**
+ * @param {Recipe} recipe
+ * @see types.js
+ */
+const formatRecipe = (recipe) => (
+  Object
+  .keys(recipe)
+  .reduce((item, key) =>
+    item.replace(new RegExp(`{${key}}`, 'g'), recipe[key]),
+    Templates.searchRecipeItem
+  )
 )
 
 export default formatRecipes

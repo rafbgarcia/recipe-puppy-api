@@ -20,7 +20,7 @@ Api.createRequestUrl = (query, page) => (
  * Make a request to the API
  *
  * @param {String} query - User's search term
- * @param {number} page
+ * @param {number} page - Page number
  * @returns
  */
 Api.fetch = (query, page) => (

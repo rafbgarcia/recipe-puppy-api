@@ -18,6 +18,15 @@ const handleNewSearch = () => {
   processSearchResult(Search.new({ query, page: 1 }))
 }
 
+const searchFromQueryString = () => {
+  searchField.val(Search.params().query)
+  processSearchResult(Search.fromQueryString())
+}
+
+
+/**
+ * DOM binding starts here.
+ */
 searchField.keypress(function() {
   window.clearTimeout(timeout)
   timeout = window.setTimeout(handleNewSearch, 300)
@@ -27,12 +36,6 @@ nextPrevPageButtons.click(function() {
   const addition = parseInt($(this).data('add'), 10)
   processSearchResult(Search.newPage(addition))
 })
-
-
-const searchFromQueryString = () => {
-  searchField.val(Search.params().query)
-  processSearchResult(Search.fromQueryString())
-}
 
 $(window).on('popstate', searchFromQueryString);
 searchFromQueryString()
