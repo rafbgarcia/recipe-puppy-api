@@ -28,4 +28,5 @@ nextPrevPageButtons.click(function() {
   processSearchResult(Search.newPage(addition))
 })
 
+searchField.val(Search.params().query)
 processSearchResult(Search.fromQueryString())
