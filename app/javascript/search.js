@@ -23,9 +23,10 @@ Search.newPage = (addition) => {
   return Search.new({ query, page: newPage })
 }
 
-Search.fromQueryString = () => (
-  Search.new(Search.params())
-)
+Search.fromQueryString = () => {
+  const { query, page } = Search.params()
+  return Api.fetch(query, page)
+}
 
 Search.params = () => {
   const params = new URLSearchParams(document.location.search)

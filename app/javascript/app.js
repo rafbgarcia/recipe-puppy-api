@@ -28,5 +28,11 @@ nextPrevPageButtons.click(function() {
   processSearchResult(Search.newPage(addition))
 })
 
-searchField.val(Search.params().query)
-processSearchResult(Search.fromQueryString())
+
+const searchFromQueryString = () => {
+  searchField.val(Search.params().query)
+  processSearchResult(Search.fromQueryString())
+}
+
+$(window).on('popstate', searchFromQueryString);
+searchFromQueryString()
