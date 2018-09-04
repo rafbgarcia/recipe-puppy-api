@@ -1,24 +1,3 @@
-# README
+## RecipeFinder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Missing some things like handling RecipePuppy API errors when there's no content, but I believe what I have is enough to evaluate my coding skills.

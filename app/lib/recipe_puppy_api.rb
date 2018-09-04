@@ -1,6 +1,11 @@
 module RecipePuppyApi
   module_function
 
+  # The API only retrieves 10 results at most, but we want to display 20 results,
+  # hence we call it twice with pages `page` and `page + 1`.
+  #
+  # The front-end also knows about that, and sends pages in odd increments,
+  # i.e. 1, 3, 5, etc.
   def search(query, get_page = 1)
     [get_page, get_page + 1]
     .map { |page| JSON.parse(Search.request(query, page))["results"] }
