@@ -1,5 +1,5 @@
 /**
- * @typedef {Object} Result
+ * @typedef {Object} Recipe
  * @property {String} title
  * @property {String} href
  * @property {String} ingredients

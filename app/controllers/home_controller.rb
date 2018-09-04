@@ -5,9 +5,7 @@ class HomeController < ApplicationController
   end
 
   def search
-    url = URI.parse("http://www.recipepuppy.com/api/")
-    req = Net::HTTP::Get.new(url.to_s)
-    res = Net::HTTP.start(url.host) { |http| http.request(req) }
-    render json: res.body
+    data = RecipePuppyApi.search(params[:query], (params[:page] || 1).to_i)
+    render json: data
   end
 end

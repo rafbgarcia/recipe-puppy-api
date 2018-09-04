@@ -13,7 +13,7 @@ Api.url = "/search"
  * @param {Integer} page - Page number for pagination
  */
 Api.createRequestUrl = (search, page) => (
-  [Api.url, '?q=', search, '&p=', page].join("")
+  [Api.url, '?query=', search, '&page=', page].join("")
 )
 
 /**
